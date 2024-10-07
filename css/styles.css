@@ -1,22 +1,23 @@
-body{
-    background-color: rgb(88,132,236);
+/* Estilos generales */
+body {
+    background-color: rgb(88, 132, 236);
+    font-family: Arial, sans-serif;
 }
-.header{
-    text-align: center;
-    
 
+.header {
+    text-align: center;
 }
-.logo{
+
+.logo {
     width: 30%;
     height: 30%;
-    
 }
 
-.body{
+.body {
     text-align: center;
 }
 
-#button{
+#button {
     background-color: rgb(205, 250, 250);
     color: rgb(0, 0, 0);
     border: none;
@@ -25,29 +26,31 @@ body{
     width: 200px;
     height: 50px;
     font-family: fantasy;
-    
 }
 
-#button:hover{
+#button:hover {
     background-color: rgb(103, 233, 233);
     box-shadow: 10px 5px 5px rgb(9, 20, 40);
     font-family: 'Courier New', Courier, monospace;
     transform: scale(1.1);
+    
 }
 
 #campeones {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
-    justify-content: center; /* Alinea los elementos al inicio, hacia la izquierda */
+    justify-content: center; /* Centra las tarjetas de los campeones */
+    
     gap: 20px; /* Espacio entre las tarjetas */
     padding: 20px;
+    visibility: hidden; /* Lo ocultamos hasta que se haga clic en el botón */
 }
 
-.campeon {
+.card {
     display: flex;
     flex-direction: column; /* Organiza la imagen y el nombre en columna */
     align-items: center;
-    width: 150px; /* Ajusta el tamaño de cada tarjeta de campeón */
+    width: 170px; /* Ajusta el tamaño de cada tarjeta de campeón */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -55,19 +58,81 @@ body{
     transition: transform 0.3s;
 }
 
-.campeon img {
+.card img {
     width: 100%; /* Hace que la imagen se ajuste al ancho del contenedor */
     height: auto;
     border-radius: 10px;
 }
 
-.campeon:hover {
+.card:hover {
     transform: scale(1.1); /* Añade un efecto de zoom al pasar el ratón por encima */
+    box-shadow: 10px 5px 5px rgb(37, 66, 121);
 }
 
-.campeon h3 {
+.card strong {
     font-family: 'Courier New', Courier, monospace;
     margin-top: 10px;
     text-align: center;
+    font-size: 16px;
+    color: #333;
 }
 
+.card p {
+    font-size: 12px;
+    text-align: center;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+.titulo{
+    text-align: center;
+}
+
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Se pone en oculto por defecto para que no se vea obviamente */
+    position: fixed; 
+    z-index: 1; /* El z-index es para que aparezca sobre los otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Toma toda la pantalla */
+    height: 100%; /* Toma toda la pantalla */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+/* Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 400px; 
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Imagen del campeón en el modal */
+#championImage {
+    margin-bottom: 15px; 
+    width: 150px; 
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botón de cerrar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

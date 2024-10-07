@@ -1,47 +1,84 @@
-// https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/< Nombre del champion >
 import Campeon from "./campeones.js";
 
 var campeones = [];
 
 const button = document.querySelector('button');
 const campeonesDiv = document.getElementById('campeones');
+const modal = document.getElementById('modal');
+const closeModal = document.querySelector('.close');
+
+// Elementos dentro del modal
+const championImage = document.getElementById('championImage'); // Imagen del campeón
+const championName = document.getElementById('championName');
+const championTitle = document.getElementById('championTitle');
+const championDescription = document.getElementById('championDescription');
 
 button.addEventListener('click', async () => {
     document.querySelector('#button').style.visibility = 'hidden';
-    
-    // También cambiamos la visibilidad del elemento #pokedex, y lo mostramos en pantalla
     document.querySelector('#campeones').style.visibility = 'visible';
     
-    startChampions();
+    await startChampions();
+    showCampeon();
 });
 
 const startChampions = async () => {
-
-    await fetch('https://ddragon.leagueoflegends.com/cdn/13.18.1/data/en_US/champion.json').then(function(result){
-        return result.json();
-    }).then(function(result){
-        const data = result;
-        const campeon = new Campeon(data);
-        pushCampeon(campeon);
+    await fetch('https://ddragon.leagueoflegends.com/cdn/13.18.1/data/en_US/champion.json')
+    .then(response => response.json())
+    .then(result => {
+        Object.keys(result.data).forEach(championKey => {
+            const campeonData = result.data[championKey];
+            const campeon = new Campeon(campeonData);
+            pushCampeon(campeon);
+        });
     });
-
-
-        
 }
 
-function pushCampeon(campeon){
+function pushCampeon(campeon) {
     campeones.push(campeon);
 }
 
-const showCampeon = async () => {
-    const campeonesDiv = document.getElementById('campeones');
-    for(var i = 0; i < campeones.length; i++) {
-    campeonesDiv.innerHTML +=  `<div class="card">
-                                
-                                    <img class="front" src="${campeones[i].imageUrl}"><br>
-                                    ${campeones[i].name}<br>
-                                
-                                   
-                                </div>`
-    }
+// Mostrar los campeones en pantalla
+const showCampeon = () => {
+    campeonesDiv.innerHTML = ''; 
+    campeones.forEach((campeon, index) => {
+        const cardHTML = `
+            <div class="card" data-index="${index}">
+                <img class="front" src="${campeon.imageUrl}" alt="${campeon.id}"><br>
+                <strong>${campeon.name}</strong><br>
+               <div class="titulo"> ${campeon.title} </div>
+            </div>
+        `;
+        campeonesDiv.innerHTML += cardHTML;
+    });
+
+    // Añado evento de clic a cada campeón para ver mas información del mismo
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const index = e.currentTarget.getAttribute('data-index');
+            openModal(campeones[index]);
+        });
+    });
 }
+
+// Función para abrir el modal con la información del campeón
+function openModal(campeon) {
+    championImage.src = campeon.imageUrl; 
+    championName.textContent = campeon.name;
+    championTitle.textContent = campeon.title;
+    championDescription.textContent = campeon.description;
+    
+    modal.style.display = 'block'; // Muestra el modal
+}
+
+// Función para cerrar el modal
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Se cierra la ventana modal si se da click en la x o en cualquier lado fuera del mismo
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
