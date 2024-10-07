@@ -1,29 +1,27 @@
-// campeones.js
-
 export class Campeon {
     constructor(name, imageUrl) {
         this.name = name;
         this.imageUrl = imageUrl;
     }
 
-    // A method to render the champion in HTML format
     render() {
-        const championDiv = document.createElement('div');
-        championDiv.classList.add('champion');
+        // Crear contenedor para el campeón
+        const campeonDiv = document.createElement('div');
+        campeonDiv.classList.add('campeon');
 
-        // Traemos la imagen 
+        // Crear la imagen del campeón
         const img = document.createElement('img');
         img.src = this.imageUrl;
         img.alt = this.name;
 
-        // Create paragraph for the name
-        const nameElement = document.createElement('p');
+        // Crear el nombre del campeón
+        const nameElement = document.createElement('h3');
         nameElement.textContent = this.name;
 
-        // Append the image and name to the championDiv
-        championDiv.appendChild(img);
-        championDiv.appendChild(nameElement);
+        // Añadir imagen y nombre al contenedor
+        campeonDiv.appendChild(img);
+        campeonDiv.appendChild(nameElement);
 
-        return championDiv;
+        return campeonDiv;
     }
 }

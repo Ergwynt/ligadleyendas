@@ -35,3 +35,39 @@ body{
     transform: scale(1.1);
 }
 
+#campeones {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
+    justify-content: flex-start; /* Alinea los elementos al inicio, hacia la izquierda */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px;
+}
+
+.campeon {
+    display: flex;
+    flex-direction: column; /* Organiza la imagen y el nombre en columna */
+    align-items: center;
+    width: 150px; /* Ajusta el tamaño de cada tarjeta de campeón */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.campeon img {
+    width: 100%; /* Hace que la imagen se ajuste al ancho del contenedor */
+    height: auto;
+    border-radius: 10px;
+}
+
+.campeon:hover {
+    transform: scale(1.1); /* Añade un efecto de zoom al pasar el ratón por encima */
+}
+
+.campeon h3 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 10px;
+    text-align: center;
+}
+
