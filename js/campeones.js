@@ -1,27 +1,10 @@
-export class Campeon {
-    constructor(name, imageUrl) {
-        this.name = name;
-        this.imageUrl = imageUrl;
+export default class Campeon {
+    constructor(data) {
+        this.id = data.id;
+        this.name = data.name;
+        this.imageUrl = `https://ddragon.leagueoflegends.com/cdn/13.18.1/img/champion/${data.id.image.full}`;
+        this.title = data.title;
+
     }
 
-    render() {
-        // Crear contenedor para el campeón
-        const campeonDiv = document.createElement('div');
-        campeonDiv.classList.add('campeon');
-
-        // Crear la imagen del campeón
-        const img = document.createElement('img');
-        img.src = this.imageUrl;
-        img.alt = this.name;
-
-        // Crear el nombre del campeón
-        const nameElement = document.createElement('h3');
-        nameElement.textContent = this.name;
-
-        // Añadir imagen y nombre al contenedor
-        campeonDiv.appendChild(img);
-        campeonDiv.appendChild(nameElement);
-
-        return campeonDiv;
-    }
 }

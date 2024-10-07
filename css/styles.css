@@ -38,7 +38,7 @@ body{
 #campeones {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
-    justify-content: flex-start; /* Alinea los elementos al inicio, hacia la izquierda */
+    justify-content: center; /* Alinea los elementos al inicio, hacia la izquierda */
     gap: 20px; /* Espacio entre las tarjetas */
     padding: 20px;
 }
