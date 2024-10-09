@@ -44,8 +44,9 @@ const showCampeon = () => {
         if (campeon.name == "Heimerdinger"){
             const cardHTML = `
             <div class="card" data-index="${index}">
+            <strong>Jaime Enrique</strong><br>
                 <img class="front" src="${campeon.imageUrl}" alt="${campeon.id}"><br>
-                <strong>Jaime Enrique</strong><br>
+                
                 <br><br>
                <div class="titulo"> ${campeon.title} </div>
             </div>
@@ -54,8 +55,10 @@ const showCampeon = () => {
         }else{
             const cardHTML = `
             <div class="card" data-index="${index}">
+            <div><strong>${campeon.name}</div></strong><br>
+            
                 <img class="front" src="${campeon.imageUrl}" alt="${campeon.id}"><br>
-                <div><strong>${campeon.name}</div></strong><br>
+                <br>
                <div class="titulo"> ${campeon.title} </div>
             </div>
         `;
@@ -77,15 +80,17 @@ const showCampeon = () => {
 
 // Función para abrir el modal con la información del campeón
 function openModal(campeon) {
-    championImage.src = campeon.imageUrl; 
+    
     if (campeon.name == "Heimerdinger"){
         championName.textContent = "Jaime Enrique"
+        championImage.src = campeon.completa; 
         championTitle.textContent = campeon.title;
         championDescription.textContent = campeon.description;
         
         modal.style.display = 'block'; // Muestra el modal
     } else{
         championName.textContent = campeon.name;
+        championImage.src = campeon.completa; 
         championTitle.textContent = campeon.title;
         championDescription.textContent = campeon.description;
     
