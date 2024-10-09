@@ -12,6 +12,7 @@ const championImage = document.getElementById('championImage'); // Imagen del ca
 const championName = document.getElementById('championName');
 const championTitle = document.getElementById('championTitle');
 const championDescription = document.getElementById('championDescription');
+const championrol = document.getElementById('championrol');
 
 button.addEventListener('click', async () => {
     document.querySelector('#button').style.visibility = 'hidden';
@@ -56,7 +57,7 @@ const showCampeon = () => {
             const cardHTML = `
             <div class="card" data-index="${index}">
             <div><strong>${campeon.name}</div></strong><br>
-            
+
                 <img class="front" src="${campeon.imageUrl}" alt="${campeon.id}"><br>
                 <br>
                <div class="titulo"> ${campeon.title} </div>
@@ -86,6 +87,7 @@ function openModal(campeon) {
         championImage.src = campeon.completa; 
         championTitle.textContent = campeon.title;
         championDescription.textContent = campeon.description;
+        championrol.textContent = `Roles: ${campeon.roles[0]}, ${campeon.roles[1]}`;
         
         modal.style.display = 'block'; // Muestra el modal
     } else{
@@ -93,6 +95,7 @@ function openModal(campeon) {
         championImage.src = campeon.completa; 
         championTitle.textContent = campeon.title;
         championDescription.textContent = campeon.description;
+        championrol.textContent = `Roles: ${campeon.roles[0]}, ${campeon.roles[1]}`;
     
         modal.style.display = 'block'; // Muestra el modal
     }
