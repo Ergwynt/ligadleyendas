@@ -39,7 +39,7 @@ body {
 #campeones {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
-    justify-content: center; /* Centra las tarjetas de los campeones */
+    justify-content:center; /* Centra las tarjetas de los campeones */
     
     gap: 20px; /* Espacio entre las tarjetas */
     padding: 20px;
@@ -65,6 +65,7 @@ body {
 }
 
 .card:hover {
+    background-color: rgb(248, 189, 80);
     transform: scale(1.1); /* Añade un efecto de zoom al pasar el ratón por encima */
     box-shadow: 10px 5px 5px rgb(37, 66, 121);
 }

@@ -41,14 +41,28 @@ function pushCampeon(campeon) {
 const showCampeon = () => {
     campeonesDiv.innerHTML = ''; 
     campeones.forEach((campeon, index) => {
-        const cardHTML = `
+        if (campeon.name == "Heimerdinger"){
+            const cardHTML = `
             <div class="card" data-index="${index}">
                 <img class="front" src="${campeon.imageUrl}" alt="${campeon.id}"><br>
-                <strong>${campeon.name}</strong><br>
+                <strong>Jaime Enrique</strong><br>
+                <br><br>
                <div class="titulo"> ${campeon.title} </div>
             </div>
         `;
         campeonesDiv.innerHTML += cardHTML;
+        }else{
+            const cardHTML = `
+            <div class="card" data-index="${index}">
+                <img class="front" src="${campeon.imageUrl}" alt="${campeon.id}"><br>
+                <div><strong>${campeon.name}</div></strong><br>
+               <div class="titulo"> ${campeon.title} </div>
+            </div>
+        `;
+        campeonesDiv.innerHTML += cardHTML;
+        }
+        
+        
     });
 
     // Añado evento de clic a cada campeón para ver mas información del mismo
@@ -64,11 +78,19 @@ const showCampeon = () => {
 // Función para abrir el modal con la información del campeón
 function openModal(campeon) {
     championImage.src = campeon.imageUrl; 
-    championName.textContent = campeon.name;
-    championTitle.textContent = campeon.title;
-    championDescription.textContent = campeon.description;
+    if (campeon.name == "Heimerdinger"){
+        championName.textContent = "Jaime Enrique"
+        championTitle.textContent = campeon.title;
+        championDescription.textContent = campeon.description;
+        
+        modal.style.display = 'block'; // Muestra el modal
+    } else{
+        championName.textContent = campeon.name;
+        championTitle.textContent = campeon.title;
+        championDescription.textContent = campeon.description;
     
-    modal.style.display = 'block'; // Muestra el modal
+        modal.style.display = 'block'; // Muestra el modal
+    }
 }
 
 // Función para cerrar el modal
