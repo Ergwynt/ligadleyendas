@@ -13,6 +13,7 @@ const championName = document.getElementById('championName');
 const championTitle = document.getElementById('championTitle');
 const championDescription = document.getElementById('championDescription');
 const championrol = document.getElementById('championrol');
+const championtype = document.getElementById('type');
 
 button.addEventListener('click', async () => {
     document.querySelector('#button').style.visibility = 'hidden';
@@ -93,6 +94,7 @@ function openModal(campeon) {
     championTitle.textContent = campeon.title;
     championDescription.textContent = campeon.description;
     championrol.textContent = `Roles: ${campeon.roles.join(', ')}`;
+    championtype.textContent = `Champion use: ${campeon.type}`;
     
     // Muestra el modal
     modal.style.display = 'block';

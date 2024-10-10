@@ -7,6 +7,7 @@ export default class Campeon {
         this.description = data.blurb;
         this.completa = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${data.id}_0.jpg`;
         this.roles = data.tags;
+        this.type = data.partype
     }
 }
 
