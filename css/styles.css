@@ -30,7 +30,8 @@ body {
 
 #button:hover {
     background-color: rgb(103, 233, 233);
-    box-shadow: 10px 5px 5px rgb(9, 20, 40);
+    box-shadow: 10px 5px 5px rgb(41, 76, 143);
+    
     font-family: 'Courier New', Courier, monospace;
     transform: scale(1.1);
     
@@ -136,7 +137,7 @@ body {
     background: linear-gradient(90deg, #ff7b00, #ffdd57); 
     padding: 10px;
     border-radius: 5px;
-    color: #282828;
+    color: #fff9f9;
     margin-bottom: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); 
 }

@@ -81,24 +81,21 @@ const showCampeon = () => {
 
 // Función para abrir el modal con la información del campeón
 function openModal(campeon) {
-    
-    if (campeon.name == "Heimerdinger"){
-        championName.textContent = "Jaime Enrique"
-        championImage.src = campeon.completa; 
-        championTitle.textContent = campeon.title;
-        championDescription.textContent = campeon.description;
-        championrol.textContent = `Roles: ${campeon.roles[0]}, ${campeon.roles[1]}`;
-        
-        modal.style.display = 'block'; // Muestra el modal
-    } else{
+    // Si el campeón es Heimerdinger, cambia el nombre a "Jaime Enrique"
+    if (campeon.name === "Heimerdinger") {
+        championName.textContent = "Jaime Enrique";
+    } else {
         championName.textContent = campeon.name;
-        championImage.src = campeon.completa; 
-        championTitle.textContent = campeon.title;
-        championDescription.textContent = campeon.description;
-        championrol.textContent = `Roles: ${campeon.roles[0]}, ${campeon.roles[1]}`;
-    
-        modal.style.display = 'block'; // Muestra el modal
     }
+    
+    // Asigna los valores que son comunes en ambos casos
+    championImage.src = campeon.completa;
+    championTitle.textContent = campeon.title;
+    championDescription.textContent = campeon.description;
+    championrol.textContent = `Roles: ${campeon.roles.join(', ')}`;
+    
+    // Muestra el modal
+    modal.style.display = 'block';
 }
 
 // Función para cerrar el modal
