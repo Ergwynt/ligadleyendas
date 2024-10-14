@@ -2,6 +2,7 @@ import Campeon from "./campeones.js";
 
 var campeones = [];
 
+// Elementos del html
 const button = document.querySelector('button');
 const campeonesDiv = document.getElementById('campeones');
 const modal = document.getElementById('modal');
@@ -23,6 +24,7 @@ button.addEventListener('click', async () => {
     showCampeon();
 });
 
+// guarda todos los campeones en el array campeones
 const startChampions = async () => {
     await fetch('https://ddragon.leagueoflegends.com/cdn/13.18.1/data/en_US/champion.json')
     .then(response => response.json())
@@ -39,7 +41,7 @@ function pushCampeon(campeon) {
     campeones.push(campeon);
 }
 
-// Mostrar los campeones en pantalla
+// Muestra los campeones en la web
 const showCampeon = () => {
     campeonesDiv.innerHTML = ''; 
     campeones.forEach((campeon, index) => {
@@ -70,7 +72,7 @@ const showCampeon = () => {
         
     });
 
-    // Añado evento de clic a cada campeón para ver mas información del mismo
+    // Añado un evento de clic a cada campeón para ver mas información del mismo
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
@@ -80,16 +82,17 @@ const showCampeon = () => {
     });
 }
 
-// Función para abrir el modal con la información del campeón
+// Funcion para abrir el modal con la información del campeon
 function openModal(campeon) {
-    // Si el campeón es Heimerdinger, cambia el nombre a "Jaime Enrique"
+
+    // Si el campeón es Heimerdinger, cambia el nombre a "Jaime Enrique" si no pone el nombre del campeon en cuestion
     if (campeon.name === "Heimerdinger") {
         championName.textContent = "Jaime Enrique";
     } else {
         championName.textContent = campeon.name;
     }
     
-    // Asigna los valores que son comunes en ambos casos
+    // Asigna el resto de valores imagen, descripcion etc.
     championImage.src = campeon.completa;
     championTitle.textContent = campeon.title;
     championDescription.textContent = campeon.description;

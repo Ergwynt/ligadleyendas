@@ -39,19 +39,19 @@ body {
 
 #campeones {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente fila si no caben */
-    justify-content:center; /* Centra las tarjetas de los campeones */
+    flex-wrap: wrap; 
+    justify-content:center; 
     
     gap: 20px; /* Espacio entre las tarjetas */
     padding: 20px;
-    visibility: hidden; /* Lo ocultamos hasta que se haga clic en el botón */
+    visibility: hidden; 
 }
 
 .card {
     display: flex;
-    flex-direction: column; /* Organiza la imagen y el nombre en columna */
+    flex-direction: column; 
     align-items: center;
-    width: 170px; /* Ajusta el tamaño de cada tarjeta de campeón */
+    width: 170px; 
     background-color: rgb(240, 230, 210);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -61,14 +61,14 @@ body {
 }
 
 .card img {
-    width: 100%; /* Hace que la imagen se ajuste al ancho del contenedor */
+    width: 100%; 
     height: auto;
     border-radius: 10px;
 }
 
 .card:hover {
     background-color: rgb(248, 189, 80);
-    transform: scale(1.1); /* Añade un efecto de zoom al pasar el ratón por encima */
+    transform: scale(1.1); 
     box-shadow: 10px 5px 5px rgb(37, 66, 121);
 }
 
