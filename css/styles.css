@@ -92,7 +92,7 @@ body {
 }
 
 
-/* Estilo para el modal */
+/* Estilos para el modal */
 .modal {
     display: none; /* Se oculta por defecto */
     position: fixed;
@@ -105,7 +105,7 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
-/* Contenido del modal */
+
 .modal-content {
     background-color: rgb(0, 90, 160); 
     margin: 5% auto;
@@ -121,7 +121,7 @@ body {
     border: 2px solid #fff; 
 }
 
-/* Imagen del campeón en el modal */
+
 #championImage {
     margin-bottom: 20px;
     width: 100%;
@@ -131,7 +131,6 @@ body {
     border: 2px solid #ffdd57; 
 }
 
-/* Título del campeón */
 #championName {
     font-size: 26px;
     font-weight: bold;
@@ -143,7 +142,7 @@ body {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); 
 }
 
-/* Subtítulo del campeón  */
+
 #championTitle {
     font-size: 18px;
     font-style: italic;
@@ -153,7 +152,7 @@ body {
     border-bottom: 1px solid #ffdd57;
 }
 
-/* Rol del campeón */
+
 #championrol {
     font-size: 16px;
     color: white;
@@ -164,7 +163,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
     text-transform: uppercase; 
 }
-/*Tipo del campeon */
+
 #type{
     font-size: 16px;
     color: white;
@@ -174,7 +173,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* Descripción */
+
 #championDescription {
     font-size: 15px;
     color: #ddd;
@@ -185,7 +184,7 @@ body {
     line-height: 1.6;
 }
 
-/* Botón de cerrar */
+
 .close {
     color: white;
     font-size: 24px;
